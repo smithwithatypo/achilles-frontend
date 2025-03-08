@@ -1,23 +1,18 @@
 // components/Layout.tsx
 import { Outlet, Link } from 'react-router';
-import { Button } from "@/components/ui/button"
-
-
+import { Button } from "@/components/ui/button";
+import { navItems } from '@/routes';
 
 const Layout: React.FC = () => {
   return (
     <div className="app-container">
       <header>
         <nav>
-        <Button asChild>
-          <Link to="/">Home</Link>
-        </Button>
-        <Button asChild>
-          <Link to="/about">About</Link>
-        </Button>
-        <Button asChild>
-          <Link to="/dashboard">Dashboard</Link>
-        </Button>
+          {navItems.map((item) => (
+            <Button key={item.path} asChild>
+              <Link to={item.path}>{item.label}</Link>
+            </Button>
+          ))}
         </nav>
       </header>
       
