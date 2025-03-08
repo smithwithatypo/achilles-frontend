@@ -1,6 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
+import {
+    Card,
+    CardContent,
+    CardHeader,
+    CardTitle,
+  } from "@/components/ui/card"
 
 const Translate: React.FC = () => { 
     const [inputText, setInputText] = useState<string>("");
@@ -48,8 +54,23 @@ const Translate: React.FC = () => {
     }, []);
 
     const handleMenuAction = (action: string) => {
-        console.log(`Action '${action}' performed on: "${selectedText}"`);
-        // Implement your actions here
+        switch (action) {
+            case "reverso":
+                window.open(`https://context.reverso.net/translation/french-english/${encodeURIComponent(selectedText)}`, '_blank');
+                break;
+            case "conjugeur":
+                window.open(`https://www.conjugation-fr.com/conjugate.php?verb=${encodeURIComponent(selectedText)}`, '_blank');
+                break;
+            case "google_translate":
+                window.open(`https://translate.google.com/?sl=fr&tl=en&text=${encodeURIComponent(selectedText)}`, '_blank');
+                break;
+            case "ai_translate":
+                window.open(`https://chat.openai.com/?prompt=${encodeURIComponent(`Translate this French text to English: "${selectedText}"`)}`, '_blank');
+                break;
+            default:
+                console.log(`Action '${action}' performed on: "${selectedText}"`);
+                break;
+        }
         setMenuPosition(null);
     };
 
@@ -65,10 +86,17 @@ const Translate: React.FC = () => {
             <Button onClick={handleButtonClick}>Ready for learning</Button>
         </div>
         <div 
-            className="outputText" 
+            className="outputText container px-4" 
             ref={outputRef}
         >
-            {outputText}
+            <Card>
+                <CardHeader>
+                    <CardTitle> Highlight for options </CardTitle>
+                </CardHeader>
+                <CardContent>
+                    {outputText}
+                </CardContent>
+            </Card>
         </div>
 
         {menuPosition && selectedText && (
@@ -78,7 +106,7 @@ const Translate: React.FC = () => {
                     position: 'absolute',
                     left: `${menuPosition.x}px`,
                     top: `${menuPosition.y}px`,
-                    transform: 'translate(-50%, -100%)',
+                    transform: 'translate(0%, -100%)',
                     background: 'white',
                     padding: '5px',
                     borderRadius: '4px',
@@ -88,7 +116,7 @@ const Translate: React.FC = () => {
                     gap: '5px'
                 }}
             >
-                <Button size="sm" onClick={() => handleMenuAction('save')}>Save</Button>
+                <Button size="sm" onClick={() => handleMenuAction('reverso')}>Rev</Button>
                 <Button size="sm" variant="outline" onClick={() => handleMenuAction('highlight')}>Highlight</Button>
                 <Button size="sm" variant="destructive" onClick={() => setMenuPosition(null)}>✕</Button>
             </div>
