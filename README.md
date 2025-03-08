@@ -1,54 +1,72 @@
-# React + TypeScript + Vite
+# Achilles frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Learn easier with React + Go + AI
 
-Currently, two official plugins are available:
+## Libraries
+- React
+- Vite for packaging
+- Shadcn + Tailwind for CSS styling
+- React Router (library) for routing
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## To run
+### Prerequisites
+- Git
+- Node.js
+- Yarn
 
-## Expanding the ESLint configuration
+### Getting Started
+1. Clone the repository:
+  ```bash
+  git clone git@github.com:smithwithatypo/achilles-frontend.git
+  ```
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+2. Navigate to the project directory:
+  ```bash
+  cd frontend
+  ```
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+3. Install dependencies:
+  ```bash
+  yarn install
+  ```
+
+4. Start the development server:
+```bash
+yarn dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Git Branch Management
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Pruning Remote and Local Branches
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+To clean up your Git repository by removing references to deleted remote branches and then removing local branches:
+
+1. Prune remote-tracking branches that no longer exist on the remote:
+```bash
+git fetch --prune
+```
+
+2. List local branches that have been merged into the current branch (to identify candidates for deletion):
+```bash
+git branch --merged
+```
+
+3. Delete a specific local branch:
+```bash
+git branch -d <branch-name>
+```
+
+4. Force delete a local branch (if it contains unmerged changes):
+```bash
+git branch -D <branch-name>
+```
+
+5. To list local branches that track deleted remote branches:
+```bash
+git branch -vv | grep ': gone]'
+```
+
+6. To delete all local branches that track deleted remote branches:
+```bash
+git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -d
 ```
