@@ -2,6 +2,7 @@
 import { Outlet, Link } from 'react-router';
 import { Button } from "@/components/ui/button";
 import { navItems } from '@/routes';
+import { ModeToggle } from '@/components/ui/mode-toggle'
 
 const Layout: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const Layout: React.FC = () => {
               <Link to={item.path}>{item.label}</Link>
             </Button>
           ))}
+          <ModeToggle />
         </nav>
       </header>
       
@@ -21,7 +23,7 @@ const Layout: React.FC = () => {
       </main>
       
       <footer>
-        <p>© Your Education App</p>
+        <p>© Stephen Smyth</p>
       </footer>
     </div>
   );
