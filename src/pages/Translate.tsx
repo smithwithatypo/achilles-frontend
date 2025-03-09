@@ -59,12 +59,12 @@ const Translate: React.FC = () => {
                 window.open(`https://context.reverso.net/translation/french-english/${encodeURIComponent(selectedText)}`, '_blank');
                 break;
             case "conjugeur":
-                window.open(`https://www.conjugation-fr.com/conjugate.php?verb=${encodeURIComponent(selectedText)}`, '_blank');
+                window.open(`https://leconjugueur.lefigaro.fr/php5/index.php?l=uk&verbe=${encodeURIComponent(selectedText)}`, '_blank');
                 break;
             case "google_translate":
                 window.open(`https://translate.google.com/?sl=fr&tl=en&text=${encodeURIComponent(selectedText)}`, '_blank');
                 break;
-            case "ai_translate":
+            case "chatgpt":
                 window.open(`https://chat.openai.com/?prompt=${encodeURIComponent(`Translate this French text to English: "${selectedText}"`)}`, '_blank');
                 break;
             default:
@@ -116,8 +116,10 @@ const Translate: React.FC = () => {
                     gap: '5px'
                 }}
             >
-                <Button size="sm" onClick={() => handleMenuAction('reverso')}>Rev</Button>
-                <Button size="sm" variant="outline" onClick={() => handleMenuAction('highlight')}>Highlight</Button>
+                <Button size="sm" onClick={() => handleMenuAction('reverso')}>Reverso</Button>
+                <Button size="sm" onClick={() => handleMenuAction('conjugeur')}>Conjugeur</Button>
+                <Button size="sm" onClick={() => handleMenuAction('google_translate')}>Google</Button>
+                <Button size="sm" onClick={() => handleMenuAction('chatgpt')}>ChatGPT</Button>
                 <Button size="sm" variant="destructive" onClick={() => setMenuPosition(null)}>✕</Button>
             </div>
         )}
