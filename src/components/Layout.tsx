@@ -14,7 +14,7 @@ const Layout: React.FC = () => {
       <header>
         <nav>
           {navItems.map((item) => (
-            <Button key={item.path} asChild>
+            <Button className="mx-1" key={item.path} asChild>
               <Link to={item.path}>{item.label}</Link>
             </Button>
           ))}
