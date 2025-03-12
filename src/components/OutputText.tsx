@@ -6,7 +6,8 @@ import {
     CardHeader,
     CardTitle,
   } from "@/components/ui/card"
-
+  import Markdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 
 interface OutputTextProps {
     text?: string;
@@ -90,18 +91,20 @@ const OutputText: React.FC<OutputTextProps> = ({ text }) => {
 
     return (
         <div 
-            className="w-full max-w-2xl mx-2 mt-10" 
+            className="w-full max-w-2xl mx-2 mt-10 prose dark:prose-invert" 
             ref={outputRef}
         >
+
             <Card>
                 <CardHeader>
                     <CardTitle> Output </CardTitle>
                 </CardHeader>
                 <CardContent className="min-h-36">
-                    {text}
+                    <Markdown remarkPlugins={[remarkGfm]}>
+                        {text}
+                    </Markdown>
                 </CardContent>
             </Card>
-
         {menuPosition && selectedText && (
             <div 
                 className="floating-menu"
@@ -127,6 +130,8 @@ const OutputText: React.FC<OutputTextProps> = ({ text }) => {
                 <Button size="sm" variant="destructive" onClick={() => setMenuPosition(null)}>✕</Button>
             </div>
         )}
+
+
         </div>
     );
 };
