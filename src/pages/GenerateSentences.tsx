@@ -51,7 +51,8 @@ const GenerateSentences: React.FC = () => {
         setError(null);
         
         try {
-            const response = await axios.post('http://localhost:8080/sentences', {
+            const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+            const response = await axios.post(`${apiUrl}/sentences`, {
                 "prompt": prompt,
                 "model": modelChoice
             });
