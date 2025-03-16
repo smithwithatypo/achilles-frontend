@@ -7,6 +7,7 @@ import About from '@/pages/About';
 import Dashboard from '@/pages/Dashboard';
 import Translate from '@/pages/Translate';
 import GenerateSentences from '@/pages/GenerateSentences'
+import LectureBuddy from '@/pages/LectureBuddy';
 import NotFound from '@/pages/NotFound';
 
 // Define your route structure
@@ -36,6 +37,10 @@ export const routes: RouteObject[] = [
         element: <GenerateSentences />
       },
       {
+        path: 'lecture',
+        element: <LectureBuddy />
+      },
+      {
         path: '*',
         element: <NotFound />
       }
@@ -50,4 +55,5 @@ export const navItems = [
   { path: '/dashboard', label: 'Dashboard' },
   { path: '/translate', label: 'Translate'},
   { path: '/sentences', label: 'Sentences'},
+  { path: '/lecture', label: 'LectureBuddy'},
 ];
