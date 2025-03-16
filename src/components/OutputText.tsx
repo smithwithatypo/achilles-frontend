@@ -3,8 +3,8 @@ import { Button } from "@/components/ui/button"
 import {
     Card,
     CardContent,
-    CardHeader,
-    CardTitle,
+    // CardHeader,
+    // CardTitle,
   } from "@/components/ui/card"
   import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
@@ -96,9 +96,9 @@ const OutputText: React.FC<OutputTextProps> = ({ text }) => {
         >
 
             <Card>
-                <CardHeader>
+                {/* <CardHeader>
                     <CardTitle> Output </CardTitle>
-                </CardHeader>
+                </CardHeader> */}
                 <CardContent className="min-h-36">
                     <Markdown remarkPlugins={[remarkGfm]}>
                         {text}

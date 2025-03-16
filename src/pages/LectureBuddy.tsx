@@ -11,7 +11,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { Card, CardContent } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 const LectureBuddy: React.FC = () => { 
     const [topic, setTopic] = useState<string>("");
@@ -82,9 +82,12 @@ const LectureBuddy: React.FC = () => {
 
     return(
         <div className="container mx-auto py-8 space-y-8">
-            <h1 className="text-2xl font-bold mb-6">Lecture Buddy</h1>
+            {/* <h1 className="text-2xl font-bold mb-6">Lecture Buddy</h1> */}
             
             <Card>
+                <CardHeader>
+                    <CardTitle> Lecture Buddy </CardTitle>
+                </CardHeader>
                 <CardContent className="pt-6">
                     <form className="space-y-6" onSubmit={(e) => {
                         e.preventDefault();
