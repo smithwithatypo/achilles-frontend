@@ -14,12 +14,6 @@ import {
 import { Card, CardContent } from "@/components/ui/card"
 
 const LectureBuddy: React.FC = () => { 
-    // const [vocabulary, setVocabulary] = useState<string>("");
-    // const [grammar, setGrammar] = useState<string>("");
-    // const [level, setLevel] = useState<string>("A1");
-    // const [sentenceLength, setSentenceLength] = useState<string>("medium");
-    
-    
     const [topic, setTopic] = useState<string>("");
     const [question, setQuestion] = useState<string>("");
     const [choice, setChoice] = useState<string>("sentence");
@@ -27,14 +21,6 @@ const LectureBuddy: React.FC = () => {
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
 
-    // const levels = {  // TODO: delete
-    //     "A1": "A1",
-    //     "A2": "A2",
-    //     "B1": "B1",
-    //     "B2": "B2",
-    //     "C1": "C1",
-    //     "C2": "C2"
-    // };
     const choices: Record<string, string> = {
         "sentence": "sentence",
         "analogy": "analogy",
@@ -50,20 +36,6 @@ const LectureBuddy: React.FC = () => {
         "ELI5": "explain like I'm 5 but use adult language please",
         "paragraph": "summarize in one paragraph"
     };
-
-    // const length = {  // TODO: delete
-    //     "small": "small",
-    //     "medium": "medium",
-    //     "large": "large",
-    // }
-
-    // const prompt: string = `
-    //     Please generate 1 sentence of ${length} size in French at a ${level} level, 
-    //     utilizing grammar rules including ${grammar}, 
-    //     and include some of these vocabulary words at random: ${vocabulary}.
-    //     Say something very different than my last sentence that read "${outputText}".
-    //     ` 
-    // TODO: delete
 
     const prompt: string = `
         I'm studying the general topic of ${topic}.
@@ -150,21 +122,6 @@ const LectureBuddy: React.FC = () => {
                                     </SelectContent>
                                 </Select>
                             </div>
-
-                            {/* <div className="space-y-2">
-                                <Label htmlFor="length">Sentence Length</Label>
-                                <Select value={sentenceLength} onValueChange={setSentenceLength}>
-                                    <SelectTrigger id="length">
-                                        <SelectValue placeholder="Select length" />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                        {Object.keys(length).map((key) => (
-                                            <SelectItem key={key} value={key}>{length[key as keyof typeof length]}</SelectItem>
-                                        ))}
-                                    </SelectContent>
-                                </Select>
-                            </div> */}
-                        {/* </div> */}
 
                         <Button 
                             type="submit" 
