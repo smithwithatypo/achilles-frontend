@@ -52,15 +52,6 @@ const GenerateSentences: React.FC = () => {
         
         try {
             const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080';
-            // if (import.meta.env.PROD) {
-            //     const apiUrl = "https://backend-production-cb2a.up.railway.app"
-            //     console.log("api url inside prod:", apiUrl);
-            // } else {
-            //     const apiUrl = "http://localhost:8080"
-            //     console.log("api url inside dev:", apiUrl);
-            // }
-            // const apiUrl = "https://backend-production-cb2a.up.railway.app"
-            // console.log("api url inside try catch:", apiUrl);
             
             const response = await axios.post(`${apiUrl}/sentences`, {
                 "prompt": prompt,
