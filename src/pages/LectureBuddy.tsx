@@ -50,10 +50,14 @@ const LectureBuddy: React.FC = () => {
         setError(null);
         
         try {
-            const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+            // const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+            const apiUrl = import.meta.env.VITE_API_URL;  // testing
+            const apiPort = import.meta.env.VITE_API_PORT; // testing
+            const apiFull = `http://${apiUrl}:${apiPort}`
+            console.log("full env api is:", apiFull)  // testing
             const apiEndpoint: string = "sentences"
             
-            const response = await axios.post(`${apiUrl}/${apiEndpoint}`, {
+            const response = await axios.post(`${apiFull}/${apiEndpoint}`, {
                 "prompt": prompt,
                 "model": modelChoice
             });
