@@ -4,7 +4,6 @@ import Layout from '@/components/Layout';
 // Pages
 import Home from '@/pages/Home';
 import About from '@/pages/About';
-import Dashboard from '@/pages/Dashboard';
 import Translate from '@/pages/Translate';
 import GenerateSentences from '@/pages/GenerateSentences'
 import LectureBuddy from '@/pages/LectureBuddy';
@@ -23,10 +22,6 @@ export const routes: RouteObject[] = [
       {
         path: 'about',
         element: <About />
-      },
-      {
-        path: 'dashboard',
-        element: <Dashboard />
       },
       {
         path: 'translate',
@@ -52,7 +47,6 @@ export const routes: RouteObject[] = [
 export const navItems = [
   { path: '/', label: 'Home' },
   { path: '/about', label: 'About' },
-  { path: '/dashboard', label: 'Dashboard' },
   { path: '/translate', label: 'Translate'},
   { path: '/sentences', label: 'Sentences'},
   { path: '/lecture', label: 'LectureBuddy'},

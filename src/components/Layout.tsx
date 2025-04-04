@@ -27,7 +27,7 @@ const Layout: React.FC = () => {
       </main>
       
       <footer>
-        <p>© Stephen Smyth</p>
+        <p>© 2025</p>
       </footer>
 
       </ThemeProvider>
