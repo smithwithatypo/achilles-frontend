@@ -56,7 +56,8 @@ const LectureBuddy: React.FC = () => {
             // const apiFull = `http://${apiUrl}:${apiPort}`
             // const POCKETBASE_URL=http://${{pocketbase.RAILWAY_PRIVATE_DOMAIN}}:${{pocketbase.PORT}}
             // const apiFull = http://${{achilles-backend.railway.internal}}:8080
-            const apiFull = import.meta.env.FULL_URL;
+            // const apiFull = import.meta.env.FULL_URL;
+            const apiFull = "https://achilles-backend-production.up.railway.app";
 
             
             console.log("full env api is:", apiFull)  // testing
