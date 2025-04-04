@@ -51,9 +51,13 @@ const LectureBuddy: React.FC = () => {
         
         try {
             // const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080';
-            const apiUrl = import.meta.env.VITE_API_URL;  // testing
-            const apiPort = import.meta.env.VITE_API_PORT; // testing
-            const apiFull = `http://${apiUrl}:${apiPort}`
+            // const apiUrl = import.meta.env.VITE_API_URL;  // testing
+            // const apiPort = import.meta.env.VITE_API_PORT; // testing
+            // const apiFull = `http://${apiUrl}:${apiPort}`
+            // const POCKETBASE_URL=http://${{pocketbase.RAILWAY_PRIVATE_DOMAIN}}:${{pocketbase.PORT}}
+            const apiFull = `http://${achilles-backend.railway.internal}:8080`
+
+            
             console.log("full env api is:", apiFull)  // testing
             const apiEndpoint: string = "sentences"
             
