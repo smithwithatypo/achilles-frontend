@@ -13,6 +13,8 @@ import {
 } from "@/components/ui/select"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
+
+
 const LectureBuddy: React.FC = () => { 
     const [topic, setTopic] = useState<string>("");
     const [question, setQuestion] = useState<string>("");
@@ -56,8 +58,8 @@ const LectureBuddy: React.FC = () => {
             // const apiFull = `http://${apiUrl}:${apiPort}`
             // const POCKETBASE_URL=http://${{pocketbase.RAILWAY_PRIVATE_DOMAIN}}:${{pocketbase.PORT}}
             // const apiFull = http://${{achilles-backend.railway.internal}}:8080
-            // const apiFull = import.meta.env.FULL_URL;
-            const apiFull = "https://achilles-backend-production.up.railway.app";
+            const apiFull = import.meta.env.VITE_FULL_URL;
+            // const apiFull = "https://achilles-backend-production.up.railway.app";  // works
 
             
             console.log("full env api is:", apiFull)  // testing
