@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import apiConfig from '@/api';
 import OutputText from "@/components/OutputText"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
@@ -58,13 +59,12 @@ const LectureBuddy: React.FC = () => {
             // const apiFull = `http://${apiUrl}:${apiPort}`
             // const apiFull = http://${{achilles-backend.railway.internal}}:8080
             // const apiFull = import.meta.env.VITE_FULL_URL;
-            const apiFull = "https://achilles-backend-production.up.railway.app";  // works
-
+            // const apiFull = "https://achilles-backend-production.up.railway.app";  // works but TODO: figure out env on railway with vite
+            const apiUrl = apiConfig.baseUrl;
             
-            console.log("full env api is:", apiFull)  // testing
             const apiEndpoint: string = "sentences"
             
-            const response = await axios.post(`${apiFull}/${apiEndpoint}`, {
+            const response = await axios.post(`${apiUrl}/${apiEndpoint}`, {
                 "prompt": prompt,
                 "model": modelChoice
             });

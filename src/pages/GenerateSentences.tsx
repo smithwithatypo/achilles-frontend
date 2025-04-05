@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import apiConfig from '@/api';
+
 import OutputText from "@/components/OutputText"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
@@ -51,7 +53,10 @@ const GenerateSentences: React.FC = () => {
         setError(null);
         
         try {
-            const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+            // const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+            // const apiUrl = "https://achilles-backend-production.up.railway.app";  // TODO: change to env
+            const apiUrl = apiConfig.baseUrl;
+
             
             const response = await axios.post(`${apiUrl}/sentences`, {
                 "prompt": prompt,
