@@ -14,6 +14,12 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { Card, CardContent } from "@/components/ui/card"
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 
 const GenerateSentences: React.FC = () => { 
     const [vocabulary, setVocabulary] = useState<string>("");
@@ -86,16 +92,91 @@ const GenerateSentences: React.FC = () => {
 
     return(
         <div className="container mx-auto py-8 space-y-8">
-            <h1 className="text-2xl font-bold mb-6">Settings</h1>
+            <Accordion type="single" collapsible defaultValue="item-1">
+            <AccordionItem value="item-1">
+                <AccordionTrigger>
+                    <h1 className="text-2xl font-bold">Settings</h1>
+                </AccordionTrigger>
+                <AccordionContent>
+                    <Card>
+                        <CardContent className="pt-6">
+                            <form className="space-y-6" onSubmit={(e) => {
+                                e.preventDefault();
+                                handleButtonClick();
+                            }}>
+                                <div className="space-y-2">
+                                    <Label htmlFor="vocabulary">Vocab</Label>
+                                    <Textarea 
+                                        id="vocabulary" 
+                                        placeholder="Courir, parler, etc..." 
+                                        value={vocabulary}
+                                        onChange={(e) => setVocabulary(e.target.value)}
+                                    />
+                                </div>
+
+                                <div className="space-y-2">
+                                    <Label htmlFor="grammar">Grammar</Label>
+                                    <Textarea 
+                                        id="grammar" 
+                                        placeholder="Passé Composé, L'imparfait, etc..." 
+                                        value={grammar}
+                                        onChange={(e) => setGrammar(e.target.value)}
+                                    />
+                                </div>
+
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div className="space-y-2">
+                                        <Label htmlFor="level">Level of difficulty</Label>
+                                        <Select value={level} onValueChange={setLevel}>
+                                            <SelectTrigger id="level">
+                                                <SelectValue placeholder="Select level" />
+                                            </SelectTrigger>
+                                            <SelectContent>
+                                                {Object.keys(levels).map((key) => (
+                                                    <SelectItem key={key} value={key}>{levels[key as keyof typeof levels]}</SelectItem>
+                                                ))}
+                                            </SelectContent>
+                                        </Select>
+                                    </div>
+
+                                    <div className="space-y-2">
+                                        <Label htmlFor="length">Length of sentence</Label>
+                                        <Select value={sentenceLength} onValueChange={setSentenceLength}>
+                                            <SelectTrigger id="length">
+                                                <SelectValue placeholder="Select length" />
+                                            </SelectTrigger>
+                                            <SelectContent>
+                                                {Object.keys(length).map((key) => (
+                                                    <SelectItem key={key} value={key}>{length[key as keyof typeof length]}</SelectItem>
+                                                ))}
+                                            </SelectContent>
+                                        </Select>
+                                    </div>
+                                </div>
+
+                                <Button 
+                                    type="submit" 
+                                    className="w-half" 
+                                    disabled={isLoading}
+                                >
+                                    {isLoading ? 'Generating...' : 'Generate!'}
+                                </Button>
+                            </form>
+                        </CardContent>
+                    </Card>
+                </AccordionContent>
+            </AccordionItem>
+            </Accordion>
+            {/* <h1 className="text-2xl font-bold mb-6">Settings</h1> */}
             
-            <Card>
+            {/* <Card>
                 <CardContent className="pt-6">
                     <form className="space-y-6" onSubmit={(e) => {
                         e.preventDefault();
                         handleButtonClick();
                     }}>
                         <div className="space-y-2">
-                            <Label htmlFor="vocabulary">Vocabulary</Label>
+                            <Label htmlFor="vocabulary">Vocab</Label>
                             <Textarea 
                                 id="vocabulary" 
                                 placeholder="Courir, parler, etc..." 
@@ -116,7 +197,7 @@ const GenerateSentences: React.FC = () => {
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="space-y-2">
-                                <Label htmlFor="level">Profiency Level</Label>
+                                <Label htmlFor="level">Level of difficulty</Label>
                                 <Select value={level} onValueChange={setLevel}>
                                     <SelectTrigger id="level">
                                         <SelectValue placeholder="Select level" />
@@ -130,7 +211,7 @@ const GenerateSentences: React.FC = () => {
                             </div>
 
                             <div className="space-y-2">
-                                <Label htmlFor="length">Sentence Length</Label>
+                                <Label htmlFor="length">Length of sentence</Label>
                                 <Select value={sentenceLength} onValueChange={setSentenceLength}>
                                     <SelectTrigger id="length">
                                         <SelectValue placeholder="Select length" />
@@ -149,11 +230,11 @@ const GenerateSentences: React.FC = () => {
                             className="w-half" 
                             disabled={isLoading}
                         >
-                            {isLoading ? 'Generating...' : 'Generate a Sentence'}
+                            {isLoading ? 'Generating...' : 'Generate!'}
                         </Button>
                     </form>
                 </CardContent>
-            </Card>
+            </Card> */}
 
             {error && (
                 <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-md text-red-600">
