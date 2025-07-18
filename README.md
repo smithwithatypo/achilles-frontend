@@ -31,9 +31,9 @@ Learn easier with React + Go + AI
   ```
 
 4. Start the development server:
-```bash
-yarn dev
-```
+  ```bash
+  yarn dev
+  ```
 
 ## Git Branch Management
 
