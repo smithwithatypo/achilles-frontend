@@ -19,15 +19,15 @@ const Translate: React.FC = () => {
 
     return (
     <>
-      <div>
+      <div className="mx-5">
         <div className="inputText w-full max-w-2xl mx-2 mt-4">
             <Card>
                 <CardHeader>
-                    <CardTitle> Input </CardTitle>
+                    <CardTitle> French Text </CardTitle>
                 </CardHeader>
                 <CardContent className="min-h-48">
                     <Textarea 
-                    placeholder="Your text goes here" 
+                    placeholder="copy / paste your french text here" 
                     value={inputText}
                     onChange={(e) => setInputText(e.target.value)}
                     className="min-h-48"
@@ -36,11 +36,16 @@ const Translate: React.FC = () => {
             <Button 
                 onClick={handleButtonClick}
                 className="max-w-lg mx-auto"
-            > Ready for learning </Button>
+            > Ready </Button>
             </Card>
         </div>
         
+        <div className="mt-10 container">
+        <p className="text-sm text-muted-foreground px-3">
+            Select any words below to start learning! 😊
+        </p>
         <OutputText text={outputText} />
+        </div>
         
       </div>
     </>

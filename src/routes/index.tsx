@@ -48,6 +48,6 @@ export const navItems = [
   { path: '/', label: 'Home' },
   { path: '/about', label: 'About' },
   { path: '/translate', label: 'Translate'},
-  { path: '/sentences', label: 'Sentences'},
+  { path: '/sentences', label: 'Generate'},
   { path: '/lecture', label: 'LectureBuddy'},
 ];

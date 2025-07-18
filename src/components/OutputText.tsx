@@ -91,7 +91,7 @@ const OutputText: React.FC<OutputTextProps> = ({ text }) => {
 
     return (
         <div 
-            className="w-full max-w-2xl mx-2 mt-10 prose dark:prose-invert" 
+            className="w-full max-w-2xl mt-4 prose dark:prose-invert" 
             ref={outputRef}
         >
 
@@ -123,10 +123,10 @@ const OutputText: React.FC<OutputTextProps> = ({ text }) => {
                     gap: '5px'
                 }}
             >
-                <Button size="sm" onClick={() => handleMenuAction('reverso')}>Rev</Button>
-                <Button size="sm" onClick={() => handleMenuAction('conjugeur')}>Conj</Button>
-                <Button size="sm" onClick={() => handleMenuAction('google_translate')}>Google</Button>
-                <Button size="sm" onClick={() => handleMenuAction('chatgpt')}>Chat</Button>
+                <Button size="sm" variant="outline" onClick={() => handleMenuAction('reverso')}>Noun or phrase</Button>
+                <Button size="sm" onClick={() => handleMenuAction('conjugeur')}>Verb</Button>
+                <Button size="sm" variant="outline"onClick={() => handleMenuAction('google_translate')}>Google</Button>
+                <Button size="sm" onClick={() => handleMenuAction('chatgpt')}>AI</Button>
                 <Button size="sm" variant="destructive" onClick={() => setMenuPosition(null)}>✕</Button>
             </div>
         )}

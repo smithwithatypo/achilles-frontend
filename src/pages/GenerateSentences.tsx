@@ -86,7 +86,7 @@ const GenerateSentences: React.FC = () => {
 
     return(
         <div className="container mx-auto py-8 space-y-8">
-            <h1 className="text-2xl font-bold mb-6">Generate Language Learning Sentences</h1>
+            <h1 className="text-2xl font-bold mb-6">Settings</h1>
             
             <Card>
                 <CardContent className="pt-6">
@@ -98,17 +98,17 @@ const GenerateSentences: React.FC = () => {
                             <Label htmlFor="vocabulary">Vocabulary</Label>
                             <Textarea 
                                 id="vocabulary" 
-                                placeholder="Enter vocabulary words (separated by commas)" 
+                                placeholder="Courir, parler, etc..." 
                                 value={vocabulary}
                                 onChange={(e) => setVocabulary(e.target.value)}
                             />
                         </div>
 
                         <div className="space-y-2">
-                            <Label htmlFor="grammar">Grammar Structures</Label>
+                            <Label htmlFor="grammar">Grammar</Label>
                             <Textarea 
                                 id="grammar" 
-                                placeholder="Enter grammar structures to practice" 
+                                placeholder="Passé Composé, L'imparfait, etc..." 
                                 value={grammar}
                                 onChange={(e) => setGrammar(e.target.value)}
                             />
@@ -116,7 +116,7 @@ const GenerateSentences: React.FC = () => {
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="space-y-2">
-                                <Label htmlFor="level">Proficiency Level</Label>
+                                <Label htmlFor="level">Profiency Level</Label>
                                 <Select value={level} onValueChange={setLevel}>
                                     <SelectTrigger id="level">
                                         <SelectValue placeholder="Select level" />
@@ -146,10 +146,10 @@ const GenerateSentences: React.FC = () => {
 
                         <Button 
                             type="submit" 
-                            className="w-full" 
+                            className="w-half" 
                             disabled={isLoading}
                         >
-                            {isLoading ? 'Generating...' : 'Generate Sentences'}
+                            {isLoading ? 'Generating...' : 'Generate a Sentence'}
                         </Button>
                     </form>
                 </CardContent>
@@ -162,8 +162,8 @@ const GenerateSentences: React.FC = () => {
             )}
 
             {outputText && !isLoading && (
-                <div className="mt-8">
-                    <h2 className="text-xl font-semibold mb-4">Generated Sentences</h2>
+                <div className="mt-10">
+                    <h1 className="text-2xl font-bold">Your Sentence</h1>
                     <OutputText text={outputText} />
                 </div>
             )}
