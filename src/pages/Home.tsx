@@ -1,28 +1,10 @@
-// pages/Home.tsx
-import React from 'react';
 
-const Home: React.FC = () => {
+const Home = () => {
   return (
-    <div className="page home-page">
-      <h1>Welcome to Our Education App</h1>
-      <p>Learn at your own pace with our interactive lessons.</p>
-      
-      <div className="feature-cards">
-        <div className="card">
-          <h2>Interactive Lessons</h2>
-          <p>Engage with content that adapts to your learning style.</p>
-        </div>
-        
-        <div className="card">
-          <h2>Track Progress</h2>
-          <p>See your achievements and stay motivated.</p>
-        </div>
-        
-        <div className="card">
-          <h2>Learn Anywhere</h2>
-          <p>Access your courses on any device, anytime.</p>
-        </div>
-      </div>
+    <div className="min-h-screen flex items-center justify-center px-4">
+      <h1 className="text-4xl md:text-6xl font-bold text-center max-w-4xl">
+        Learn French with AI
+      </h1>
     </div>
   );
 };
